@@ -5,7 +5,8 @@ const ID_EXCEL = "1GaD487ksKiPYrDaQV-RdOv-1xC5iA-rZ4kZrsiXCo5A";
 document.addEventListener("DOMContentLoaded", async ()=>{
 
     const series = await consumirExcelDrive(ID_EXCEL);
-console.log(series[0]["nombre"])
+    
+console.log(series);
     const contenedor=document.querySelector(".productos");
 
     series.forEach((serie)=>{
@@ -16,15 +17,15 @@ console.log(series[0]["nombre"])
 
             <div class="card h-100 shadow">
 
-                <img src="${serie.imagen}" class="card-img-top">
+                <img src="${serie.texto}" class="card-img-top">
 
                 <div class="card-body">
 
-                    <h3>${serie.nombre}</h3>
+                    <h3>${serie.Nombre}</h3>
 
                     <p><strong>Género:</strong> ${serie.genero}</p>
 
-                    <p>⭐ ${serie.puntaje}</p>
+                    <p>⭐ ${serie.puntaje}/10</p>
 
                     <a href="${serie.trailer}"
                        target="_blank"
