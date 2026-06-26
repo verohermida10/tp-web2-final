@@ -5,7 +5,7 @@ const ID_EXCEL = "1GaD487ksKiPYrDaQV-RdOv-1xC5iA-rZ4kZrsiXCo5A";
 document.addEventListener("DOMContentLoaded", async ()=>{
 
     const series = await consumirExcelDrive(ID_EXCEL);
-
+console.log(series[0]["nombre"])
     const contenedor=document.querySelector(".productos");
 
     series.forEach((serie)=>{
