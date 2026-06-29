@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", async ()=>{
     const series = await consumirExcelDrive(ID_EXCEL);
     
 console.log(series);
-    const contenedor=document.querySelector(".productos");
+    const contenedor = document.querySelector(".productos");
 
-    series.forEach((serie)=>{
+function mostrarSeries(lista) {
 
-        contenedor.innerHTML+=`
+    contenedor.innerHTML = "";
+
+    lista.forEach((serie) => {
+
+        contenedor.innerHTML += `
 
         <div class="col-md-4 mb-4">
 
@@ -43,4 +47,19 @@ console.log(series);
 
     });
 
+}
+mostrarSeries(series);
+const buscador = document.getElementById("buscador");
+
+buscador.addEventListener("input", () => {
+
+    const texto = buscador.value.toLowerCase();
+
+    const resultado = series.filter((serie) =>
+        serie.Nombre.toLowerCase().includes(texto)
+    );
+
+    mostrarSeries(resultado);
+
+});
 });
